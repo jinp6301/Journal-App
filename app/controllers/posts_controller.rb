@@ -25,7 +25,12 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy
+    if @post.destroy
+      render :nothing => true, :status => 200
+    else
+      render :nothing => true, :status => 500
+    end
+
   end
 
 
