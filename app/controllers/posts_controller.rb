@@ -4,7 +4,7 @@ class PostsController < ApplicationController
     @post = Post.new(params[:post])
     if @post.save
       respond_to  do |format|
-        format.json :json => @post
+        format.json {render :json => @post}
       end
     else
       render :json => @post.errors, :status => 422
@@ -21,6 +21,11 @@ class PostsController < ApplicationController
       format.json {render :json => @posts}
       format.html {render :index}
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
   end
 
 

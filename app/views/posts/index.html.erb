@@ -1,5 +1,11 @@
 <script type="application/json" id="bootstrapped_posts_json">
-
 <%= Post.all.to_json.html_safe %>
 </script>
 
+<script>
+var postData = $('#bootstrapped_posts_json').html();
+var bootstrapped_posts = JSON.parse(postData);
+var posts = new Collections.Posts(bootstrapped_posts);
+var indexView = new Views.postsIndex({collection: posts});
+$('body').html(indexView.render().$el)
+</script>
