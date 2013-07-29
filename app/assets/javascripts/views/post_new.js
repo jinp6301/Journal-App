@@ -26,7 +26,7 @@ Views.PostNew = Backbone.View.extend({
     post.save({}, {
       success: function(){
         that.posts.add(post);
-        Backbone.history.navigate("/", true);
+        Backbone.history.navigate("#posts/" + post.id , true);
       }
     });
   }

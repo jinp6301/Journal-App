@@ -26,7 +26,7 @@ Views.PostsIndex = Backbone.View.extend({
 
       //$("li#" + post.id).append(button);
     });
-
+    ul.append($("<br><a href='#/posts/new'>New Post</a>"));
     that.$el.html(ul);
     return that;
   },
