@@ -1,0 +1,7 @@
+<form class="edit-post">
+  Title
+  <input class='title' type="text" name="post[title]" value="<%= post.escape('title') %>">
+  Body
+  <textarea class='body' name="post[body]"><%= post.escape('body') %></textarea>
+  <button class="submit-edit">Edit Post</button>
+</form>

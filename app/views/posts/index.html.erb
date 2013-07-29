@@ -7,7 +7,10 @@ $(document).ready(function() {
   var postData = $('#bootstrapped_posts_json').html();
   var bootstrapped_posts = JSON.parse(postData);
   var posts = new Collections.Posts(bootstrapped_posts);
-  var indexView = new Views.postsIndex({collection: posts});
-  $('body').html(indexView.render().$el);
+  console.log(posts);
+  var router = new Routers.PostsRouter(posts);
+  Backbone.history.start();
+  // var indexView = new Views.PostsIndex({collection: posts});
+  // $('body').html(indexView.render().$el);
 })
 </script>
